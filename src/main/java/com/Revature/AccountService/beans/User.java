@@ -1,5 +1,7 @@
 package com.Revature.AccountService.beans;
 
+import com.Revature.AccountService.beans.enums.SecurityLevel;
+
 import javax.persistence.*;
 
 import static javax.persistence.GenerationType.SEQUENCE;
@@ -24,7 +26,7 @@ public class User {
     private String pword;
 
     @Column(name="SECURITY_LEVEL")
-    private int securityLevel;
+    private SecurityLevel securityLevel;
 
     public User(){}
 
@@ -56,10 +58,10 @@ public class User {
         this.pword = pword;
     }
 
-    public int getSecurityLevel() {
+    public SecurityLevel getSecurityLevel() {
         return securityLevel;
     }
-    public void setSecurityLevel(int securityLevel) {
+    public void setSecurityLevel(SecurityLevel securityLevel) {
         this.securityLevel = securityLevel;
     }
 
