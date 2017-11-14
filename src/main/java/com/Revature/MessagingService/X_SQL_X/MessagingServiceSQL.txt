@@ -56,3 +56,7 @@ CREATE TABLE User_Group_Map
 ALTER TABLE User_Group_Map
 ADD CONSTRAINT FK_G
 FOREIGN KEY (G_Id) REFERENCES Message_Groups(Message_Group_Id);
+
+ALTER TABLE Messages
+ADD CONSTRAINT FK_MG
+FOREIGN KEY (Group_Id) REFERENCES Message_Groups(Message_Group_Id);
