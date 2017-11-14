@@ -12,7 +12,7 @@ public class User {
     @SequenceGenerator(name="User_ID_SEQ", sequenceName = "User_ID_SEQ",allocationSize=1)
     @GeneratedValue(strategy=SEQUENCE, generator="User_ID_SEQ")
     @Column(name="User_ID")
-    private Integer userId;
+    private long userId;
 
     @Column(name="FIRST_NAME")
     private String firstName;
@@ -28,10 +28,10 @@ public class User {
 
     public User(){}
 
-    public Integer getUserId() {
+    public long getUserId() {
         return userId;
     }
-    public void setUserId(Integer userId) {
+    public void setUserId(long userId) {
         this.userId = userId;
     }
 
