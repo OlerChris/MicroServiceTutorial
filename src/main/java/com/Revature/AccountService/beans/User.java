@@ -7,18 +7,27 @@ import static javax.persistence.GenerationType.SEQUENCE;
 @Entity
 @Table(name="USER_ACCOUNT")
 public class User {
-    private Integer userId;
-    private String firstName;
-    private String lastName;
-    private String pword;
-    private int securityLevel;
-
-    public User(){}
 
     @Id
     @SequenceGenerator(name="User_ID_SEQ", sequenceName = "User_ID_SEQ",allocationSize=1)
     @GeneratedValue(strategy=SEQUENCE, generator="User_ID_SEQ")
     @Column(name="User_ID")
+    private Integer userId;
+
+    @Column(name="FIRST_NAME")
+    private String firstName;
+
+    @Column(name="LAST_NAME")
+    private String lastName;
+
+    @Column(name="PWORD")
+    private String pword;
+
+    @Column(name="SECURITY_LEVEL")
+    private int securityLevel;
+
+    public User(){}
+
     public Integer getUserId() {
         return userId;
     }
@@ -26,7 +35,6 @@ public class User {
         this.userId = userId;
     }
 
-    @Column(name="FIRST_NAME")
     public String getFirstName() {
         return firstName;
     }
@@ -34,7 +42,6 @@ public class User {
         this.firstName = firstName;
     }
 
-    @Column(name="LAST_NAME")
     public String getLastName() {
         return lastName;
     }
@@ -42,7 +49,6 @@ public class User {
         this.lastName = lastName;
     }
 
-    @Column(name="PWORD")
     public String getPword() {
         return pword;
     }
@@ -50,7 +56,6 @@ public class User {
         this.pword = pword;
     }
 
-    @Column(name="SECURITY_LEVEL")
     public int getSecurityLevel() {
         return securityLevel;
     }
