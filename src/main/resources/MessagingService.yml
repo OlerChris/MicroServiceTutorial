@@ -1,12 +1,14 @@
 # Spring properties
 spring:
   application:
-     name: messaging-service
-   datasource:
-        username: RevatureMessaging
-        password: pazzword
-        url: {url}
-        driver-class-name: oracle.jdbc.driver.OracleDriver
+      name: messaging-service
+  datasource:
+      username: RevatureMessaging
+      password: pazzword
+      url: {url}
+      driver-class-name: oracle.jdbc.driver.OracleDriver
+  jpa:
+      database-platform: org.hibernate.dialect.Oracle10gDialect
 
 # Discovery Server Access
 eureka:
@@ -17,3 +19,4 @@ eureka:
 # HTTP Server
 server:
   port: 8081  # HTTP (Tomcat) port
+

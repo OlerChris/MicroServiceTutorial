@@ -1,12 +1,14 @@
 # Spring properties
 spring:
   application:
-     name: accounts-service
+      name: accounts-service
   datasource:
-     username: RevatureAccounts
-     password: pazzword
-     url: {url}
-     driver-class-name: oracle.jdbc.driver.OracleDriver
+      username: RevatureAccounts
+      password: pazzword
+      url: {url}
+      driver-class-name: oracle.jdbc.driver.OracleDriver
+  jpa:
+      database-platform: org.hibernate.dialect.Oracle10gDialect
 
 # Discovery Server Access
 eureka:
@@ -17,9 +19,3 @@ eureka:
 # HTTP Server
 server:
   port: 8080  # HTTP (Tomcat) port
-
-
-spring.datasource.username=wolfstaUser
-spring.datasource.password=p4ssw0rd
-spring.datasource.url=jdbc:oracle:thin:@orcl.crindnwyjtzo.us-east-2.rds.amazonaws.com:1521:ORCL
-spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
