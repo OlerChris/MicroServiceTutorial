@@ -2,6 +2,11 @@
 spring:
   application:
      name: messaging-service
+   datasource:
+        username: RevatureMessaging
+        password: pazzword
+        url: {url}
+        driver-class-name: oracle.jdbc.driver.OracleDriver
 
 # Discovery Server Access
 eureka:
