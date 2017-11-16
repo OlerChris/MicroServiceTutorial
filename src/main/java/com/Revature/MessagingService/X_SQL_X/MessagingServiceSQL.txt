@@ -60,3 +60,9 @@ FOREIGN KEY (G_Id) REFERENCES Message_Groups(Message_Group_Id);
 ALTER TABLE Messages
 ADD CONSTRAINT FK_MG
 FOREIGN KEY (Group_Id) REFERENCES Message_Groups(Message_Group_Id);
+
+/*******************************************************************************
+       Create Sequences
+********************************************************************************/
+CREATE SEQUENCE Message_ID_SEQ START WITH 1;
+CREATE SEQUENCE Group_ID_SEQ START WITH 1;
