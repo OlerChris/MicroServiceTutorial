@@ -34,7 +34,7 @@ group chats and the messages in them. Each milestone is kept in a branch called 
             Hibernate - ORM (Object Relational Mapper) provides JPA (Java Persistance Annotations)
 
         Tutorial points:
-            Oracle SQL script given in X_SQL_X packages
+            Oracle SQL scripts given in X_SQL_X packages
             Tables and columns in database correspond to Beans and instance variables respectively
             Bean annotations are from Hibernate and map Java Objects to Database
             Repository Interface implementations are created by Spring
