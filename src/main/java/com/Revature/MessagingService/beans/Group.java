@@ -17,7 +17,7 @@ public class Group {
     @Column(name="Group_Owner")
     private long owner;
 
-    @Column(name="Public_Access") //TODO converter
+    @Column(name="Public_Access")
     private boolean publicAccess;
 
     public Group(){}
