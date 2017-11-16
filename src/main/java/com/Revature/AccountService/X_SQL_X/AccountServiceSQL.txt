@@ -36,3 +36,8 @@ CREATE TABLE User_Account
     Security_Level NUMBER,
     CONSTRAINT PK_R_Users PRIMARY KEY  (User_Id)
 );
+
+/*******************************************************************************
+     Create Sequences
+********************************************************************************/
+CREATE SEQUENCE User_ID_SEQ START WITH 1;
