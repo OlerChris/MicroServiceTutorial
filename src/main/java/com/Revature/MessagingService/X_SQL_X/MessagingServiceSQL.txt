@@ -1,0 +1,62 @@
+/*******************************************************************************
+   Drop database if it exists
+********************************************************************************/
+DROP USER RevatureMessaging CASCADE;
+
+
+/*******************************************************************************
+   Create database
+********************************************************************************/
+CREATE USER RevatureMessaging
+IDENTIFIED BY pazzword
+DEFAULT TABLESPACE users
+TEMPORARY TABLESPACE temp
+QUOTA 10M ON users;
+
+GRANT connect to RevatureMessaging;
+GRANT resource to RevatureMessaging;
+GRANT create session TO RevatureMessaging;
+GRANT create table TO RevatureMessaging;
+GRANT create view TO RevatureMessaging;
+
+
+
+conn RevatureMessaging/pazzword
+
+
+/*******************************************************************************
+   Create Tables
+********************************************************************************/
+CREATE TABLE Messages
+(
+    Message_Id NUMBER NOT NULL,
+    Author NUMBER NOT NULL, /*Refers to User in Acount Service*/
+    Group_Id Number NOT Null,
+    TEXT VARCHAR2(300),
+    CONSTRAINT PK_R_Messages PRIMARY KEY  (Message_Id)
+);
+
+CREATE TABLE Message_Groups
+(
+    Message_Group_Id NUMBER NOT NULL,
+    Group_Owner NUMBER NOT NULL, /*Refers to User in Acount Service*/
+    Public_Access CHAR(1),/*Can everyone in chat invite users?*/
+    CONSTRAINT PK_R_Message_Groups PRIMARY KEY  (Message_Group_Id)
+);
+
+CREATE TABLE User_Group_Map
+(
+    G_Id NUMBER UNIQUE NOT NULL,
+    U_Id NUMBER UNIQUE NOT NULL /*Refers to User in Acount Service*/
+);
+
+/*******************************************************************************
+   Foreign Keys
+********************************************************************************/
+ALTER TABLE User_Group_Map
+ADD CONSTRAINT FK_G
+FOREIGN KEY (G_Id) REFERENCES Message_Groups(Message_Group_Id);
+
+ALTER TABLE Messages
+ADD CONSTRAINT FK_MG
+FOREIGN KEY (Group_Id) REFERENCES Message_Groups(Message_Group_Id);

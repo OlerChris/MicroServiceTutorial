@@ -1,7 +1,14 @@
 # Spring properties
 spring:
   application:
-     name: accounts-service
+      name: accounts-service
+  datasource:
+      username: RevatureAccounts
+      password: pazzword
+      url: ${url}
+      driver-class-name: oracle.jdbc.driver.OracleDriver
+  jpa:
+      database-platform: org.hibernate.dialect.Oracle10gDialect
 
 # Discovery Server Access
 eureka:
