@@ -61,4 +61,14 @@ public class UserDTO {
                 SecurityLevel.getSecurityLevelbyLevelId(this.securityLevel));
         return u;
     }
+
+    public static UserDTO getDTO(User u){
+        UserDTO x = new UserDTO();
+        x.userId = u.getUserId();
+        x.firstName = u.getFirstName();
+        x.lastName = u.getLastName();
+        x.pword = u.getPword();
+        x.securityLevel = u.getSecurityLevel().getLevelId();
+        return x;
+    }
 }

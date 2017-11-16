@@ -23,4 +23,45 @@ public class Message {
 
     @Column(name="TEXT")
     private String message;
+
+    public Message(){}
+
+    public Message(long messageId, long authorID, Group group, String message) {
+        this.messageId = messageId;
+        AuthorID = authorID;
+        this.group = group;
+        this.message = message;
+    }
+
+    public long getMessageId() {
+        return messageId;
+    }
+
+    public void setMessageId(long messageId) {
+        this.messageId = messageId;
+    }
+
+    public long getAuthorID() {
+        return AuthorID;
+    }
+
+    public void setAuthorID(long authorID) {
+        AuthorID = authorID;
+    }
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }
