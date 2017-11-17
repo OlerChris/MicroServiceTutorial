@@ -1,6 +1,7 @@
 package com.Revature.AccountService.controllers;
 
 import com.Revature.AccountService.beans.User;
+import com.Revature.AccountService.dataTransferObjects.UserCredentials;
 import com.Revature.AccountService.dataTransferObjects.UserDTO;
 import com.Revature.AccountService.services.UserServive;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,10 +24,16 @@ public class UserController {
 
     @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity register(@RequestBody UserDTO x){
-        System.out.println(x);
         User u = x.convertToUser();
         u = userService.register(u);
         x = UserDTO.getDTO(u);
         return new ResponseEntity<UserDTO>(x, HttpStatus.ACCEPTED);
+    }
+
+    @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity login(@RequestBody UserCredentials x){
+        Long id;
+        id = userService.login(x);
+        return new ResponseEntity<Long>(id, HttpStatus.ACCEPTED);
     }
 }
