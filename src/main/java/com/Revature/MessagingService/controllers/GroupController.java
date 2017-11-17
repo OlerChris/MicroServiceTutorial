@@ -37,7 +37,7 @@ public class GroupController {
      * @param uid id of user to be added
      * @return userid
      */
-    @RequestMapping( consumes = "/", path = "/{gid}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping( consumes = "*/*", path = "/{gid}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity addUser(@PathVariable Long gid, @RequestBody Long uid){
         uid = groupService.addUser(uid, gid);
         return new ResponseEntity<Long>(uid, HttpStatus.ACCEPTED);
@@ -48,7 +48,7 @@ public class GroupController {
      * @param gid groupId
      * @return the Group
      */
-    @RequestMapping( consumes = "/", path = "/group/{gid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping( consumes = "*/*", path = "/getGroup/{gid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity getGroup(@PathVariable Long gid){
         Group g = groupService.getGroup(gid);
         GroupDTO x = GroupDTO.getDTO(g);
@@ -60,7 +60,7 @@ public class GroupController {
      * @param uid the id of the User
      * @return long[] group Ids
      */
-    @RequestMapping( consumes = "/", path = "/{uid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping( consumes = "*/*", path = "/{uid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity getGroups(@PathVariable Long uid){
         Long[] gs = groupService.getGroups(uid);
         return new ResponseEntity<Long[]>(gs, HttpStatus.ACCEPTED);

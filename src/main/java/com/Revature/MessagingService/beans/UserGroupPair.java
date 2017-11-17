@@ -2,6 +2,7 @@ package com.Revature.MessagingService.beans;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
@@ -11,6 +12,7 @@ public class UserGroupPair {
     @Column(name="U_ID")
     private Long uid;
 
+    @Id
     @Column(name="G_ID")
     private Long gid;
 
