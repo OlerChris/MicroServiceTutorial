@@ -5,9 +5,11 @@ import com.Revature.AccountService.beans.enums.SecurityLevel;
 
 public class UserDTO {
     private long userId;
+    private String username;
     private String firstName;
     private String lastName;
     private String pword;
+    private String email;
     private int securityLevel;
 
     public UserDTO(){}
@@ -18,6 +20,14 @@ public class UserDTO {
 
     public void setUserId(long userId) {
         this.userId = userId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getFirstName() {
@@ -44,6 +54,14 @@ public class UserDTO {
         this.pword = pword;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public int getSecurityLevel() {
         return securityLevel;
     }
@@ -55,9 +73,11 @@ public class UserDTO {
     public User convertToUser(){
         User u = new User(
                 this.userId,
+                this.username,
                 this.firstName,
                 this.lastName,
                 this.pword,
+                this.email,
                 SecurityLevel.getSecurityLevelbyLevelId(this.securityLevel));
         return u;
     }
@@ -65,9 +85,11 @@ public class UserDTO {
     public static UserDTO getDTO(User u){
         UserDTO x = new UserDTO();
         x.userId = u.getUserId();
+        x.username = u.getUsername();
         x.firstName = u.getFirstName();
         x.lastName = u.getLastName();
         x.pword = u.getPword();
+        x.email = u.getEmail();
         x.securityLevel = u.getSecurityLevel().getLevelId();
         return x;
     }
