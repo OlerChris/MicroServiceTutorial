@@ -11,4 +11,4 @@ eureka:
 
 # HTTP Server
 server:
-  port: 8081  # HTTP (Tomcat) port
+  port: 8082  # HTTP (Tomcat) port

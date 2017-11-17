@@ -10,7 +10,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 public class AccountServiceApplication {
 
 	public static void main(String[] args) {
-		System.setProperty("spring.config.name", "AccountService");
+		System.setProperty("spring.config.name", "properties/AccountService");
 		SpringApplication.run(AccountServiceApplication.class, args);
 	}
 }
