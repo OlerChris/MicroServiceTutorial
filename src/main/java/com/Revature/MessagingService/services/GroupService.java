@@ -23,6 +23,8 @@ public class GroupService {
     }
 
     public Long addUser(Long uid, Long gid) {
+        System.out.println(gid + "567897654567898");
+        System.out.println(uid + "567897654567898");
         UserGroupPair x = new UserGroupPair(uid, gid);
         UGrepo.save(x);
         return x.getUid();
