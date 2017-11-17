@@ -1,7 +1,7 @@
 package com.Revature.AccountService.controllers;
 
 import com.Revature.AccountService.beans.User;
-import com.Revature.AccountService.beans.enums.SecurityLevel;
+import com.Revature.AccountService.dataTransferObjects.UserDTO;
 import com.Revature.AccountService.services.UserServive;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,13 +22,11 @@ public class UserController {
     private UserServive userService;
 
     @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity register(){
-        User u = new User();
-        u.setFirstName("John");
-        u.setLastName("Johnson");
-        u.setPword("JJ");
-        u.setSecurityLevel(SecurityLevel.Basic);
+    public ResponseEntity register(@RequestBody UserDTO x){
+        System.out.println(x);
+        User u = x.convertToUser();
         u = userService.register(u);
-        return new ResponseEntity<User>(u, HttpStatus.ACCEPTED);
+        x = UserDTO.getDTO(u);
+        return new ResponseEntity<UserDTO>(x, HttpStatus.ACCEPTED);
     }
 }
