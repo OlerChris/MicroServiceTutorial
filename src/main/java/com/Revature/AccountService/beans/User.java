@@ -16,6 +16,9 @@ public class User {
     @Column(name="User_ID")
     private long userId;
 
+    @Column(name="USERNAME")
+    private String username;
+
     @Column(name="FIRST_NAME")
     private String firstName;
 
@@ -25,16 +28,21 @@ public class User {
     @Column(name="PWORD")
     private String pword;
 
+    @Column(name="EMAIL")
+    private String email;
+
     @Column(name="SECURITY_LEVEL")
     private SecurityLevel securityLevel;
 
     public User(){}
 
-    public User(long userId, String firstName, String lastName, String pword, SecurityLevel securityLevel) {
+    public User(long userId, String username, String firstName, String lastName, String pword, String email, SecurityLevel securityLevel) {
         this.userId = userId;
+        this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.pword = pword;
+        this.email = email;
         this.securityLevel = securityLevel;
     }
 
@@ -43,6 +51,14 @@ public class User {
     }
     public void setUserId(long userId) {
         this.userId = userId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getFirstName() {
@@ -66,6 +82,14 @@ public class User {
         this.pword = pword;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public SecurityLevel getSecurityLevel() {
         return securityLevel;
     }
@@ -76,8 +100,8 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+                "username='" + username + '\'' +
+                ", email='" + email + '\'' +
                 ", securityLevel=" + securityLevel +
                 '}';
     }

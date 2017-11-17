@@ -28,15 +28,16 @@ conn RevatureAccounts/pazzword
    Create Tables
 ********************************************************************************/
 CREATE TABLE User_Account
-(
-    User_Id NUMBER NOT NULL,
-    First_Name VARCHAR2(30) NOT NULL,
-    Last_Name VARCHAR2(30) NOT NULL,
-    PWord VARCHAR2(30) NOT NULL,
-    Security_Level NUMBER,
-    CONSTRAINT PK_R_Users PRIMARY KEY  (User_Id)
-);
-
+  (
+      User_Id NUMBER NOT NULL,
+      Username VARCHAR2(30) UNIQUE,
+      First_Name VARCHAR2(30) NOT NULL,
+      Last_Name VARCHAR2(30) NOT NULL,
+      PWord VARCHAR2(30) NOT NULL,
+      Email VARCHAR2(50) UNIQUE,
+      Security_Level NUMBER,
+      CONSTRAINT PK_R_Users PRIMARY KEY  (User_Id)
+  );
 /*******************************************************************************
      Create Sequences
 ********************************************************************************/
