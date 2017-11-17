@@ -10,7 +10,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 public class MessagingServiceApplication {
 
     public static void main(String[] args) {
-        System.setProperty("spring.config.name", "MessagingService");
+        System.setProperty("spring.config.name", "properties/MessagingService");
         SpringApplication.run(MessagingServiceApplication.class, args);
     }
 }
