@@ -9,10 +9,10 @@ import javax.persistence.Table;
 public class UserGroupPair {
 
     @Column(name="U_ID")
-    private long uid;
+    private Long uid;
 
     @Column(name="G_ID")
-    private long gid;
+    private Long gid;
 
     public UserGroupPair() {
     }
@@ -22,19 +22,19 @@ public class UserGroupPair {
         this.gid = gid;
     }
 
-    public long getUid() {
+    public Long getUid() {
         return uid;
     }
 
-    public void setUid(long uid) {
+    public void setUid(Long uid) {
         this.uid = uid;
     }
 
-    public long getGid() {
+    public Long getGid() {
         return gid;
     }
 
-    public void setGid(long gid) {
+    public void setGid(Long gid) {
         this.gid = gid;
     }
 }

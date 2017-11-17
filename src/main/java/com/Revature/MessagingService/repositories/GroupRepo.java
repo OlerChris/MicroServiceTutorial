@@ -7,5 +7,5 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
 @Repository
-public interface GroupRepo extends JpaRepository<Group,Integer> {
+public interface GroupRepo extends JpaRepository<Group,Long> {
 }
