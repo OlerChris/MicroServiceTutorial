@@ -30,6 +30,14 @@ public class User {
 
     public User(){}
 
+    public User(long userId, String firstName, String lastName, String pword, SecurityLevel securityLevel) {
+        this.userId = userId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.pword = pword;
+        this.securityLevel = securityLevel;
+    }
+
     public long getUserId() {
         return userId;
     }
