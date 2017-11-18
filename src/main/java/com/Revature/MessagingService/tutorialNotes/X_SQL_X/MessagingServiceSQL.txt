@@ -46,8 +46,10 @@ CREATE TABLE Message_Groups
 
 CREATE TABLE User_Group_Map
 (
+    UG_ID NUMBER NOT NULL,
     G_Id NUMBER UNIQUE NOT NULL,
-    U_Id NUMBER UNIQUE NOT NULL /*Refers to User in Acount Service*/
+    U_Id NUMBER UNIQUE NOT NULL, /*Refers to User in Acount Service*/
+    CONSTRAINT PK_R_User_Group_Map PRIMARY KEY  (UG_Id)
 );
 
 /*******************************************************************************
@@ -66,3 +68,4 @@ FOREIGN KEY (Group_Id) REFERENCES Message_Groups(Message_Group_Id);
 ********************************************************************************/
 CREATE SEQUENCE Message_ID_SEQ START WITH 1;
 CREATE SEQUENCE Group_ID_SEQ START WITH 1;
+CREATE SEQUENCE USER_GROUP_MAP_ID_SEQ START WITH 1;
