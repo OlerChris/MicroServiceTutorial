@@ -8,5 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @Repository
 public interface GroupRepo extends JpaRepository<Group,Long> {
-    Group findByGroupName(String name);
+    Group findByGroupId(long groupId);
+
+    Group findByGroupName(String gName);
 }
