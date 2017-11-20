@@ -35,16 +35,11 @@ public class GroupService {
 
     public String[] getGroups(Long uid) {
         List<UserGroupPair> gs = UGrepo.findByUid(uid);
-        Object[] x = gs.stream()
+        return gs.stream()
                 .filter(ugp -> ugp.getUid().longValue() == uid.longValue())
                 .map(UserGroupPair::getGid)
-                .toArray();
-        Long[] x2 = (Long[]) x;
-        ArrayList<String> y = new ArrayList<>();
-        for ( Long id : x2){
-            y.add(repo.findOne(id).getName());
-        }
-        return (String[]) y.toArray();
+                .map(gid -> repo.findOne(gid).getName())
+                .toArray(String[]::new);
     }
 
     public Long[] getUsers(String gName) {

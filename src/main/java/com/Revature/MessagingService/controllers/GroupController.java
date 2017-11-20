@@ -61,7 +61,7 @@ public class GroupController {
      * @param uid the id of the User
      * @return long[] group Ids
      */
-    @RequestMapping(path = "/{uid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(path = "/getGroups/{uid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity getGroups(@RequestParam String uid){
         String[] gs = groupService.getGroups(Long.parseLong(uid));
         return new ResponseEntity<String[]>(gs, HttpStatus.ACCEPTED);
