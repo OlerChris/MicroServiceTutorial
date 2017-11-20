@@ -44,8 +44,7 @@ public class GroupService {
         for ( Long id : x2){
             y.add(repo.findOne(id).getName());
         }
-        String[] y2 = (String[]) y.toArray();
-        return y2;
+        return (String[]) y.toArray();
     }
 
     public Long[] getUsers(String gName) {
