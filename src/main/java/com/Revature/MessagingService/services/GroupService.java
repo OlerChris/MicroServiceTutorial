@@ -44,7 +44,7 @@ public class GroupService {
 
     public Long[] getUsers(String gName) {
        Group g = repo.findByGroupName(gName);
-       List<Long> x = UGrepo.findAllByGid(g.getGroupId());
-       return (Long[]) x.toArray();
+       List<UserGroupPair> x = UGrepo.findAllByGid(g.getGroupId());
+       return x.stream().map(UserGroupPair::getUid).toArray(Long[]::new);
     }
 }
