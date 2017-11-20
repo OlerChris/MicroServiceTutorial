@@ -12,4 +12,6 @@ import java.util.List;
 public interface UserGroupPairRepo extends JpaRepository<UserGroupPair,Long> {
 
     List<UserGroupPair> findByUid(Long uid);
+
+    List<Long> findAllByGid(Long gid);
 }

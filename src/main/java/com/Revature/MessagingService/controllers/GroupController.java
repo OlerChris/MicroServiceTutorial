@@ -66,4 +66,15 @@ public class GroupController {
         String[] gs = groupService.getGroups(Long.parseLong(uid));
         return new ResponseEntity<String[]>(gs, HttpStatus.ACCEPTED);
     }
+
+    /**
+     * fetches users of a group of a given name
+     * @param gName group name
+     * @return the user ids
+     */
+    @RequestMapping(path = "/getUsers/{gName}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity getUsers(@RequestParam String gName){
+        Long[] users = groupService.getUsers(gName);
+        return new ResponseEntity<Long[]>(users, HttpStatus.ACCEPTED);
+    }
 }

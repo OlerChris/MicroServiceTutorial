@@ -47,4 +47,10 @@ public class GroupService {
         String[] y2 = (String[]) y.toArray();
         return y2;
     }
+
+    public Long[] getUsers(String gName) {
+       Group g = repo.fingByName(gName);
+       List<Long> x = UGrepo.findAllByGid(g.getGroupId());
+       return (Long[]) x.toArray();
+    }
 }
