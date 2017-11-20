@@ -5,11 +5,8 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:1111
+      defaultZone: http://localhost:1111/eureka/
     registerWithEureka: false
-
-server:
-  port: 8080
 
 zuul:
   prefix: /api
@@ -17,14 +14,17 @@ zuul:
     AccountService:
       path: /accountService/**
       serviceId: accounts-service
+      url : http://localhost:8081
     MessagingService:
       path: /messagingService/**
       serviceId: messaging-service
+      url : http://localhost:8082
 
-endpoints:
-  restart:
+ribbon:
+  eureka:
     enabled: true
-  shutdown:
-    enabled: true
-  health:
-    sensitive: false
+
+server:
+  port: 8080
+
+

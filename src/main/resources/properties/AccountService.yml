@@ -1,3 +1,6 @@
+info:
+  description: used for registration and login
+
 # Spring properties
 spring:
   application:
