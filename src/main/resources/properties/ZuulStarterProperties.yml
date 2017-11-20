@@ -1,0 +1,30 @@
+spring:
+  application:
+      name: zuul
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111
+    registerWithEureka: false
+
+server:
+  port: 8080
+
+zuul:
+  prefix: /api
+  routes:
+    account:
+      path: /accountService/**
+      serviceId: accounts-service
+    customer:
+      path: /messagingService/**
+      serviceId: messaging-service
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
