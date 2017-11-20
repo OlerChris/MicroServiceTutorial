@@ -35,8 +35,8 @@ public class UserController {
     }
 
     @RequestMapping(path = "{uid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity getUserName(@RequestParam Long uid){
+    public ResponseEntity getUsername(@RequestParam Long uid){
         String username = userService.getUsername(uid);
-        return new ResponseEntity<String>(username, HttpStatus.ACCEPTED);
+        return new ResponseEntity<String>("\"" + username + "\"", HttpStatus.ACCEPTED);
     }
 }
