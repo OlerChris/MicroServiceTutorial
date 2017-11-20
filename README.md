@@ -1,4 +1,4 @@
-# Revature Staging
+# MicroServiceTutorial
 
 The purpose of this project is to serve as an example/tutorial for creating a microservice application. IntelliJ
 was used as my IDE A account servive will handle login, logout, and registration. A messaging service will handle
