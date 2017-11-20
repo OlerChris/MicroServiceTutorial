@@ -1,7 +1,7 @@
 # MicroServiceTutorial
 
 The purpose of this project is to serve as an example/tutorial for creating a microservice application. IntelliJ
-was used as my IDE A account servive will handle login, logout, and registration. A messaging service will handle
+was used as my IDE. An account service will handle login, logout, and registration. A messaging service will handle
 group chats and the messages in them. Each milestone is kept in a branch called X#. The details of each are below.
 
     X# - synopsis
