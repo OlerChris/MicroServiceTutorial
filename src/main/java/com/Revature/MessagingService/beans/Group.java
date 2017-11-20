@@ -15,7 +15,7 @@ public class Group {
     private long groupId;
 
     @Column(name="Group_NAME")
-    private String name;
+    private String groupName;
 
     @Column(name="Group_Owner")
     private long owner;
@@ -25,9 +25,9 @@ public class Group {
 
     public Group(){}
 
-    public Group(long groupId, String name, long owner, boolean publicAccess) {
+    public Group(long groupId, String groupName, long owner, boolean publicAccess) {
         this.groupId = groupId;
-        this.name = name;
+        this.groupName = groupName;
         this.owner = owner;
         this.publicAccess = publicAccess;
     }
@@ -41,11 +41,11 @@ public class Group {
     }
 
     public String getName() {
-        return name;
+        return groupName;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.groupName = name;
     }
 
     public long getOwner() {
