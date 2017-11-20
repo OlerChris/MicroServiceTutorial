@@ -19,7 +19,7 @@ public class GroupController {
     private GroupService groupService;
 
     /**
-     * Creates a new Group
+     * Creates a new Group and adds owner to it
      * @param x Group specs sent through body as JSON
      * @return the created group
      */
@@ -27,6 +27,7 @@ public class GroupController {
     public ResponseEntity create(@RequestBody GroupDTO x){
         Group g = x.convertToGroup();
         g = groupService.create(g);
+        groupService.addUser(g.getOwner(), g.getGroupId());
         x = GroupDTO.getDTO(g);
         return new ResponseEntity<GroupDTO>(x, HttpStatus.ACCEPTED);
     }
@@ -44,25 +45,25 @@ public class GroupController {
     }
 
     /**
-     * fetches a group of a given id
-     * @param gid groupId
+     * fetches a group of a given name
+     * @param gName group name
      * @return the Group
      */
-    @RequestMapping(path = "/getGroup/{gid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity getGroup(@RequestParam String gid){
-        Group g = groupService.getGroup(Long.parseLong(gid));
+    @RequestMapping(path = "/getGroup/{gName}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity getGroup(@RequestParam String gName){
+        Group g = groupService.getGroup(gName);
         GroupDTO x = GroupDTO.getDTO(g);
         return new ResponseEntity<GroupDTO>(x, HttpStatus.ACCEPTED);
     }
 
     /**
-     * get the group ids associated with a user
+     * get the group names associated with a user
      * @param uid the id of the User
      * @return long[] group Ids
      */
     @RequestMapping(path = "/{uid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity getGroups(@RequestParam String uid){
-        Long[] gs = groupService.getGroups(Long.parseLong(uid));
-        return new ResponseEntity<Long[]>(gs, HttpStatus.ACCEPTED);
+        String[] gs = groupService.getGroups(Long.parseLong(uid));
+        return new ResponseEntity<String[]>(gs, HttpStatus.ACCEPTED);
     }
 }
