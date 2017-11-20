@@ -5,6 +5,7 @@ import com.Revature.MessagingService.beans.Group;
 public class GroupDTO {
 
     private long groupId;
+    private String name;
     private long owner;
     private boolean publicAccess;
 
@@ -16,6 +17,14 @@ public class GroupDTO {
 
     public void setGroupId(long groupId) {
         this.groupId = groupId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public long getOwner() {
@@ -37,6 +46,7 @@ public class GroupDTO {
     public Group convertToGroup(){
         Group g = new Group(
                 this.groupId,
+                this.name,
                 this.owner,
                 this.publicAccess);
         return g;
@@ -45,6 +55,7 @@ public class GroupDTO {
     public static GroupDTO getDTO(Group g){
         GroupDTO x = new GroupDTO();
         x.groupId = g.getGroupId();
+        x.name = g.getName();
         x.owner = g.getOwner();
         x.publicAccess = g.isPublicAccess();
         return x;
