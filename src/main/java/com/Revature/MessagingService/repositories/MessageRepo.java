@@ -7,5 +7,5 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
 @Repository
-public interface MessageRepo extends JpaRepository<Message,Integer> {
+public interface MessageRepo extends JpaRepository<Message,Long> {
 }

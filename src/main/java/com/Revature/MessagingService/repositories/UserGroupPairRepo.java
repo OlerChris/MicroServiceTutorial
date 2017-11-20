@@ -1,14 +1,17 @@
 package com.Revature.MessagingService.repositories;
 
-import com.Revature.MessagingService.beans.Group;
+import com.Revature.MessagingService.beans.UserGroupPair;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Transactional
 @Repository
-public interface GroupRepo extends JpaRepository<Group,Long> {
-    Group findByGroupId(long groupId);
+public interface UserGroupPairRepo extends JpaRepository<UserGroupPair,Long> {
 
-    Group findByGroupName(String gName);
+    List<UserGroupPair> findByUid(Long uid);
+
+    List<UserGroupPair> findAllByGid(Long gid);
 }
