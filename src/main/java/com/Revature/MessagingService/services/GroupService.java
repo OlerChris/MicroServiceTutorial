@@ -22,9 +22,7 @@ public class GroupService {
     public Group create(Group persisted) {return repo.save(persisted);
     }
 
-    public Long addUser(Long uid, Long gid) {
-        System.out.println(gid + "567897654567898");
-        System.out.println(uid + "567897654567898");
+    public Long addUser(Long uid, Long gid){
         UserGroupPair x = new UserGroupPair(0L, uid, gid);
         UGrepo.save(x);
         return x.getId();
