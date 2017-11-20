@@ -25,4 +25,8 @@ public class UserServive {
             return 0L;
         }
     }
+
+    public String getUsername(Long uid) {
+        return repo.findOne(uid).getUsername();
+    }
 }

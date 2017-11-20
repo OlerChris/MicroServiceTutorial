@@ -8,10 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/accountService/user")
@@ -35,5 +32,11 @@ public class UserController {
         Long id;
         id = userService.login(x);
         return new ResponseEntity<Long>(id, HttpStatus.ACCEPTED);
+    }
+
+    @RequestMapping(path = "{uid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity getUserName(@RequestParam Long uid){
+        String username = userService.getUsername(uid);
+        return new ResponseEntity<String>(username, HttpStatus.ACCEPTED);
     }
 }
