@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/messagingService/message")
+@RequestMapping("/message")
 public class MessageController {
 
     @Autowired

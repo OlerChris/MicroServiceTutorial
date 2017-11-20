@@ -14,10 +14,10 @@ server:
 zuul:
   prefix: /api
   routes:
-    account:
+    AccountService:
       path: /accountService/**
       serviceId: accounts-service
-    customer:
+    MessagingService:
       path: /messagingService/**
       serviceId: messaging-service
 
