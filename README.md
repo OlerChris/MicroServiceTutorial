@@ -65,6 +65,16 @@ group chats and the messages in them. Each milestone is kept in a branch called 
 
     ####################################################################################################
 
+     X4 - All services can now be accessed through Zuul gateway
+
+        Technologies:
+            Zuul - Gateway used to access services through one location
+
+        Tutorial points:
+            Zuul has been set to run on port 8080 and now each service can be used through that port rather than using seperate ports for each
+
+    ####################################################################################################
+
     Tech List
 
         Eureka      - X1
@@ -76,4 +86,5 @@ group chats and the messages in them. Each milestone is kept in a branch called 
         SpringBoot  - X1
         SpringData  - X2
         SpringMVC   - X3
+        Zuul        - X4
 

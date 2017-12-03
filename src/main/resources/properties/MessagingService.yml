@@ -1,3 +1,6 @@
+info:
+  description: used for managing messages
+
 # Spring properties
 spring:
   application:
